@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+body.register-page{
+	background-image:url('/resources/images/loginForm/intro.jpg');
+	background-position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+}

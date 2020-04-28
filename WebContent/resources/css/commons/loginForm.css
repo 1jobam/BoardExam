@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+body.login-page{
+	background-image:url('/resources/images/loginForm/intro.jpg');
+	background-position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+a.logo-nm{
+	color : black;
+}
+
+a.logo-nm:hover{
+	font-size: 1.2em;
+	border : 1px blue solid;
+}
+
+p.mb-2{
+	margin: 15px 20px 60px 5px;
+}
+
+p.mb-2 a:hover{
+	color:red;
+}
