@@ -9,4 +9,10 @@
 		where id = #{id}
 	</select>
 	
+	<update id="insertMember" parameterType="member">
+		insert into
+		member(id, pwd, email, phone, picture, name)
+		values(#{id}, #{pwd}, #{email}, #{phone}, #{picture}, #{name})
+	</update>
+	
 </mapper>

@@ -15,8 +15,6 @@ public class MemberVO {
 	private String enabled;
 	private Date regdate;
 	
-	private MemberVO() {}
-
 	public String getId() {
 		return id;
 	}

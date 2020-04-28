@@ -27,9 +27,9 @@
 	    <div class="card-body register-card-body">
 	      <p class="login-box-msg">회원가입 진행에 감사드립니다.</p>
 	
-	      <form action="../../index.html" method="post">
+	      <form action="/commons/regist.do" method="post">
 	        <div class="input-group mb-3">
-	          <input type="text" class="form-control" placeholder="이름">
+	          <input type="text" class="form-control" name="name" placeholder="이름">
 	          <div class="input-group-append">
 	            <div class="input-group-text">
 	              <span class="fas fa-user"></span>
@@ -37,7 +37,7 @@
 	          </div>
 	        </div>
 	        <div class="input-group mb-3">
-	          <input type="email" class="form-control" placeholder="이메일">
+	          <input type="email" class="form-control" name="email" placeholder="이메일">
 	          <div class="input-group-append">
 	            <div class="input-group-text">
 	              <span class="fas fa-envelope"></span>
@@ -45,7 +45,7 @@
 	          </div>
 	        </div>
 	        <div class="input-group mb-3">
-	          <input type="password" class="form-control" placeholder="패스워드">
+	          <input type="password" class="form-control" name="pwd" placeholder="패스워드">
 	          <div class="input-group-append">
 	            <div class="input-group-text">
 	              <span class="fas fa-lock"></span>
@@ -54,6 +54,22 @@
 	        </div>
 	        <div class="input-group mb-3">
 	          <input type="password" class="form-control" placeholder="패스워드 확인">
+	          <div class="input-group-append">
+	            <div class="input-group-text">
+	              <span class="fas fa-lock"></span>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="input-group mb-3">
+	          <input type="text" class="form-control" name="addr" placeholder="주소">
+	          <div class="input-group-append">
+	            <div class="input-group-text">
+	              <span class="fas fa-lock"></span>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="input-group mb-3">
+	          <input type="text" class="form-control" name="phone" placeholder="연락처">
 	          <div class="input-group-append">
 	            <div class="input-group-text">
 	              <span class="fas fa-lock"></span>

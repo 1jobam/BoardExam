@@ -3,6 +3,6 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <script>
-	alert("${param.bno}번의 게시글 삭제를 실패하셨습니다.");
+	alert("해당 자료 삭제를 실패하셨습니다.");
 	history.go(-1);
 </script>

@@ -31,26 +31,24 @@ public class AttachDAOImpl implements AttachDAO{
 	}
 
 	@Override
-	public List<AttachVO> selectAttachesByPno(int pno) throws SQLException {
+	public List<AttachVO> selectAttachesByBno(int bno) throws SQLException {
 		SqlSession session = sessionFactory.openSession();
-		List<AttachVO> attachList=
-				session.selectList("Attach-Mapper.selectAttachByPno",pno);
+		List<AttachVO> attachList=session.selectList("Attach-Mapper.selectAttachByBno",bno);
 		session.close();
 		return attachList;
 	}
 
 	@Override
-	public void deleteAllAttach(int pno) throws SQLException {
+	public void deleteAllAttach(int bno) throws SQLException {
 		SqlSession session = sessionFactory.openSession(true);
-		session.update("Attach-Mapper.deleteAllAttach",pno);		
+		session.update("Attach-Mapper.deleteAllAttach",bno);		
 		session.close();		
 	}
 	@Override
-	public AttachVO selectAttachByAno(int ano) throws SQLException {
+	public AttachVO selectAttachByAno(int bno) throws SQLException {
 		SqlSession session = sessionFactory.openSession();
 		
-		AttachVO attach=
-			session.selectOne("Attach-Mapper.selectAttachByAno",ano);
+		AttachVO attach=session.selectOne("Attach-Mapper.selectAttachByAno",bno);
 		
 		session.close();
 		return attach;

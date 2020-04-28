@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 
+
+
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
@@ -9,14 +11,26 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright © 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
-<div id="sidebar-overlay"></div>
 </div>
+<!-- ./wrapper -->
 
-<script src="<%=request.getContextPath()%>/resources/bootstrap/plugins/jquery/jquery.min.js"></script>
+<!-- REQUIRED SCRIPTS -->
+
+
+<!-- Bootstrap 4 -->
 <script src="<%=request.getContextPath()%>/resources/bootstrap/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
 <script src="<%=request.getContextPath()%>/resources/bootstrap/dist/js/adminlte.min.js"></script>
-
+<!-- common.js -->
+<script src="<%=request.getContextPath() %>/resources/js/common.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+

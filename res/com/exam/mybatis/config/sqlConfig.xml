@@ -32,9 +32,9 @@
   		<mapper resource="com/exam/mybatis/mapper/Member-Mapper.xml"/>
   		
   		<!-- 게시판 -->
-<!--   		<mapper resource="com/exam/mybatis/mapper/Board-Mapper.xml"/> -->
-<!--   		<mapper resource="com/exam/mybatis/mapper/Reply-Mapper.xml"/>  		 -->
-<!--   		<mapper resource="com/exam/mybatis/mapper/Attach-Mapper.xml"/> -->
+  		<mapper resource="com/exam/mybatis/mapper/Board-Mapper.xml"/>
+  		<mapper resource="com/exam/mybatis/mapper/Reply-Mapper.xml"/>  		
+  		<mapper resource="com/exam/mybatis/mapper/Attach-Mapper.xml"/>
   	</mappers>
   	
   </configuration>

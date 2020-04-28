@@ -6,101 +6,111 @@
 
 
 <head>
-	<title>게시글 목록</title>
+	<title>자유게시판 목록</title>
 	<style>
-		
 		table th,td{
-			text-align:center;		
+			text-align:center;
 		}
 		
+	
 	</style>
 </head>	
 	
 <body>
-  <c:set var="pageMaker" value="${dataMap.pageMaker }" />	
-  	
+  <c:set var="pageMaker" value="${dataMap.pageMaker }" />	  	
    <div class="content-wrapper" >
-    
-	<jsp:include page="content_header.jsp">
-		<jsp:param value="자유게시판" name="subject"/>
-		<jsp:param value="list.do" name="url"/>
-		<jsp:param value="목 록" name="item"/>
-	</jsp:include> 
-	
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    	<div class="container-fluid">
+    		<div class="row mb-2">
+    			<div class="col-sm-6">
+	      			<h1>자유게시판</h1>
+	      		</div>	      		
+	    	
+	       		
+	       		<div class="col-sm-6">
+			      <ol class="breadcrumb float-sm-right">
+			        <li class="breadcrumb-item"><a href="list.do"><i class="fa fa-dashboard"></i>자유게시판</a></li>
+			        <li class="breadcrumb-item active">리스트</li>		        
+			      </ol>
+		      	</div>
+	     	</div>	     	
+      	</div>
+    </section>
+
     <!-- Main content -->
-    <section class="content">		
+    <section class="content">
 		<div class="card">
 			<div class="card-header with-border">
-				<button type="button" class="btn btn-primary" id="registBtn" onclick="javascript:location.href='registForm.do'">글등록</button>				
-				<div id="keyword" class="card-tools" style="width:350px;">
-					<div class="input-group row">						
-						<select class="form-control col-md-4" name="searchType" id="searchType">
-							<option value="tcw"  ${pageMaker.cri.searchType eq 'tcw' ? 'selected':'' }>전 체</option>
-							<option value="t" ${pageMaker.cri.searchType eq 't' ? 'selected':'' }>제 목</option>
-							<option value="w" ${pageMaker.cri.searchType eq 'w' ? 'selected':'' }>작성자</option>
-							<option value="c" ${pageMaker.cri.searchType eq 'c' ? 'selected':'' }>내 용</option>
-							<option value="tc" ${pageMaker.cri.searchType eq 'tc' ? 'selected':'' }>제목+내용</option>
-							<option value="cw" ${pageMaker.cri.searchType eq 'cw' ? 'selected':'' }>작성자+내용</option>							
-						</select>					
-						<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${param.keyword }"/>
+				<button type="button" class="btn btn-primary" id="registBtn" onclick="javascript:location.href='registForm.do'">게시글 등록</button>
+				<div id="keyword" class="card-tools" style="width:350px;">	
+					<div class="input-group row">
+						<select class="form-control" name="searchType" id="searchType">
+							<option ${pageMaker.cri.searchType eq 'tcw' ? 'selected' : ''} value="tcw">전 체</option>
+							<option ${pageMaker.cri.searchType eq 't' ? 'selected' : ''} value="t">제 목</option>
+							<option ${pageMaker.cri.searchType eq 'w' ? 'selected' : ''} value="w">작성자</option>
+							<option ${pageMaker.cri.searchType eq 'c' ? 'selected' : ''} value="c">내용</option>
+							<option ${pageMaker.cri.searchType eq 'tc' ? 'selected' : ''} value="tc">제목+내용</option>
+							<option ${pageMaker.cri.searchType eq 'cw' ? 'selected' : ''} value="cw">작성자+내용</option>
+						</select>
+						<input  class="form-control" type="text" name="keyword" placeholder="검색어를 입력하세요." value="${pageMaker.cri.keyword}"/>
 						<span class="input-group-append">
-							<button class="btn btn-primary" type="button" onclick="searchList_go(1);" 
-							data-card-widget="search">
+							<button class="btn btn-primary" type="button" id="searchBtn" data-card-widget="search">
 								<i class="fa fa-fw fa-search"></i>
 							</button>
 						</span>
-					</div>
-				</div>						
+					</div>						
+				</div>			
 			</div>
 			<div class="card-body">
-				<table class="table table-bordered text-center" >					
+				<table class="table table-bordered text-center">
 					<tr style="font-size:0.95em;">
-						<th style="width:8%;">번 호</th>
-						<th style="width:45%;">제 목</th>
-						<th style="width:13%;">작성자</th>
-						<th style="width:10%;">첨부파일</th>
+						<th style="width:10%">번 호</th>
+						<th style="width:50%">제 목</th>
+						<th style="width:15%">작성자</th>
+						<th>첨부파일</th>
 						<th>등록일</th>
-						<th style="width:10%;">조회수</th>
-					</tr>				
-					<c:if test="${empty dataMap.boardList }" >
+						<th style="width:10%">조회수</th>
+					</tr>
+					<c:if test="${empty dataMap.boardList }">
 						<tr>
 							<td colspan="6">
 								<strong>해당 내용이 없습니다.</strong>
 							</td>
 						</tr>
-					</c:if>						
+					</c:if>
 					<c:forEach items="${dataMap.boardList }" var="board">
-						<tr style='font-size:0.85em;'>
+						<tr>
 							<td>${board.bno }</td>
-							<td id="boardTitle" style="text-align:left;max-width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
-							<a href="javascript:OpenWindow('detail.do${pageMaker.makeQuery(pageMaker.cri.page) }&bno=${board.bno }','상세보기',600,800);">
-								<span class="col-sm-12 ">${board.title }
-									<c:if test="${board.replycnt ne 0 }">		
-										<span class="nav-item">															
-										&nbsp;&nbsp;<i class="fa fa-comment"></i>
-										<span class="badge badge-warning navbar-badge">${board.replycnt}</span>
-										</span>
-										
-									</c:if>
-								</span>
+							<td id="pdsTitle" style="text-align:left;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">
+							<a href="javascript:location.href='detail.do${pageMaker.makeQuery() }&bno=${board.bno }'">
+								<span class="col-sm-12">${board.title }</span>
 							</a>
 							</td>
-							<td>${board.writer }</td>
-							<td>${board.attachchk }</td>
+							<td>${board.writer}</td>
+							<c:if test="${empty dataMap.attachList }">
+							<td>N</td>
+							</c:if>
+							<c:if test="${not empty dataMap.attachList }">
+							<td>Y</td>
+							</c:if>
 							<td>
 								<fmt:formatDate value="${board.regDate }" pattern="yyyy-MM-dd"/>
 							</td>
 							<td><span class="badge bg-red">${board.viewcnt }</span></td>
 						</tr>
 					</c:forEach>
-				</table>				
+				</table>
 			</div>
 			<div class="card-footer">
-				<%@ include file="/WEB-INF/views/pagination/pagination.jsp" %>				
+				<nav aria-label="pds list Navigation">
+					<ul class="pagination justify-content-center m-0">
+						<%@ include file="/WEB-INF/views/pagination/pagination.jsp" %>
+					</ul>
+				</nav>
 			</div>
 		</div>
-		
-    </section>
+	</section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -113,33 +123,23 @@
 		  <input type='hidden' name="keyword" 
 		         value="${pageMaker.cri.keyword }" />
 	</form>
-   	
-<script>
 	
-	$('#searchBtn').on('click',function(e){
-		/* 
-		if($('input[name="keyword"]').val() !=""){
-			if($('select[name="searchType"]').val()==""){
-				alert("검색구분은 필수입니다.");
-				$('input[name="searchType"]').focus();
-				return;
-			}			
-		} */
-		
-		var jobForm=$('#jobForm');
+	<script>
+	$('#searchBtn').on('click',function(){
+
+		var jobForm = $('#jobForm');
 		jobForm.find("[name='page']").val(1);
-		jobForm.find("[name='searchType']").val($('select[name="searchType"]').val());
-		jobForm.find("[name='keyword']").val($('input[name="keyword"]').val());
+		jobForm.find("[name='searchType']").val($("select[name='searchType']").val());
+		jobForm.find("[name='keyword']").val($("input[name='keyword']").val());
 		
 		/* alert(jobForm.serialize()); */
 		
 		jobForm.attr("action","list.do").attr("method","get");
 		jobForm.submit();
+		
 	});
-	
-	
-</script>
-
+	</script>
+ 
 </body>
 
 

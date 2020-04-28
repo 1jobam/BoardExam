@@ -3,8 +3,8 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 
-<%@ include file="header.jsp" %>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
 
 <decorator:body />
 
-<%@ include file="footer.jsp" %>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>

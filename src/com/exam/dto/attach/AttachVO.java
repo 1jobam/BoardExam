@@ -8,10 +8,9 @@ public class AttachVO {
 	private String uploadPath;
 	private String fileName;
 	private String fileType;
-	private int pno;
+	private int bno;
 	private String attacher;
 	private Date regDate;
-	
 	public int getAno() {
 		return ano;
 	}
@@ -36,11 +35,11 @@ public class AttachVO {
 	public void setFileType(String fileType) {
 		this.fileType = fileType;
 	}
-	public int getPno() {
-		return pno;
+	public int getBno() {
+		return bno;
 	}
-	public void setPno(int pno) {
-		this.pno = pno;
+	public void setBno(int bno) {
+		this.bno = bno;
 	}
 	public String getAttacher() {
 		return attacher;
@@ -54,13 +53,12 @@ public class AttachVO {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+	
 	@Override
 	public String toString() {
 		return "AttachVO [ano=" + ano + ", uploadPath=" + uploadPath + ", fileName=" + fileName + ", fileType="
-				+ fileType + ", pno=" + pno + ", attacher=" + attacher + ", regDate=" + regDate + "]";
-	}
-	
-	
+				+ fileType + ", bno=" + bno + ", attacher=" + attacher + ", regDate=" + regDate + "]";
+	}	
 	
 	
 }
